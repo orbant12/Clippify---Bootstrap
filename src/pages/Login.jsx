@@ -4,7 +4,7 @@ import { useAuth } from '../context/UserAuthContext';
 
 // CSS
 import '../Css/styles.css';
-import '../Css/sidebar.css';
+
 import '../Css/login.css';
 
 // FIREBASE
@@ -121,96 +121,21 @@ const SubmitHandler = async (e) => {
 };
 
 return (
-<div id="login">
-  <div id="login-mobile" style={{ alignContent: 'center' }}>
-    <h1>Clippify is Available on PC or Laptop!!</h1>
-  </div>
-  <div className="container-auth">
-    <div className="forms">
-      <div className="form-content">
-        <div className="cover"></div>
-        <div className="signup-form">
-          <div className="title">Signup</div>
+<div id='login' className='container' >
+  <div className='for'>
+    <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
 
-          {/* REGISTER FORM */}
-          <form onSubmit={SubmitHandler}>
-            <div className="input-boxes">
-              {/* Input fields for name, email, and password */}
-              <div className="input-box">
-                <i className="fas fa-user"></i>
-                <input
-                  type="text"
-                  placeholder="Enter your name"
-                  name="FullName"
-                  value={user.FullName}
-                  onChange={UserHandler}
-                  required
-                />
-              </div>
-              <div className="input-box">
-                <i className="fas fa-envelope"></i>
-                <input
-                  type="text"
-                  placeholder="Enter your email"
-                  name="email"
-                  value={user.email}
-                  onChange={UserHandler}
-                  required
-                />
-              </div>
-              <div className="input-box">
-                <i className="fas fa-lock"></i>
-                <input
-                  type="password"
-                  placeholder="Enter your password"
-                  name="password"
-                  value={user.password}
-                  onChange={UserHandler}
-                  required
-                />
-              </div>
-
-              {/* Submit button */}
-              <div className="button input-box">
-                <input type="submit" />
-              </div>
-
-              {/* Google and Apple sign-up buttons */}
-              <div
-                style={{ display: 'none' }}
-                className="google-btn"
-                onClick={googleSignIn}
-              >
-                <div className="google-icon-wrapper">
-                  <img
-                    crossOrigin="anonymous"
-                    className="google-icon"
-                    src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                  />
-                </div>
-                <p className="btn-text"><b>Register with Google</b></p>
-              </div>
-
-              <div style={{ display: 'none' }} className="apple-btn">
-                <div className="apple-icon-wrapper">
-                  <img
-                    crossOrigin="anonymous"
-                    className="apple-icon"
-                    src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
-                  />
-                </div>
-                <p className="btn-text"><b>Register with Apple</b></p>
-              </div>
-
-              {/* Already have an account link */}
-              <div className="text sign-up-text">
-                Already have an account? <a href="/login">Login now</a>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+  <select class="form-select form-select-sm" aria-label="Small select example">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
   </div>
 </div>
 );

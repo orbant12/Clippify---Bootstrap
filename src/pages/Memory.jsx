@@ -9,7 +9,7 @@ import { db } from '../firebase';
 
 // CSS
 import '../Css/styles.css';
-import '../Css/sidebar.css';
+
 
 // ICONS
 import SnippetFolderIcon from '@mui/icons-material/SnippetFolder';

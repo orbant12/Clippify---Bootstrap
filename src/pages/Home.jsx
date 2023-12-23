@@ -6,12 +6,15 @@ import { Link } from 'react-router-dom';
 import { collection, doc, getDocs,query,limit,getDoc} from 'firebase/firestore';
 import { db } from "../firebase";
 //CSS
-import '../Css/styles.css'
-import '../Css/sidebar.css'
-import '../Css/home.css'
+
 //ASSETS
-import CircularWithValueLabel from '../assets/Home/progressBar'
-import FileCard from '../assets/FileAdd/fileCard.jsx'
+import DarkVariantExample from "../components/HomePage/Carousel"
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Badge from 'react-bootstrap/Badge'
+import RecentCard from '../components/HomePage/RecentCard';
+import FolderCard from '../components/HomePage/FolderCard';
 //ICONS
 import SnippetFolderIcon from '@mui/icons-material/SnippetFolder';
 import CloudSyncIcon from '@mui/icons-material/CloudSync';
@@ -21,7 +24,6 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import ScreenshotIcon from '@mui/icons-material/Screenshot';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import BasicSpeedDial from "../assets/FileAdd/addBtn"
-
 
 export function Home({folderUrl}) {
 
@@ -111,79 +113,30 @@ useEffect(() => {
 
 
 return (
-<div className="home">
-  <div id="userCrated-Files">
-    <div className="home-card">
-        <div className='usage-box'>
-          {/*TITLE*/}
-          <div className='usage-title'>
-              <h1 className='title-main'>See Your Limits</h1>
-              <h3 className='title-sub'>You can upgrade your plan to extend these limits <a href="/subscription">click here</a> to see the subscription plans</h3>
-          </div>
-          {/*CLOUD SPACE*/}
-          <div className='cloud'>
-            <div><CircularWithValueLabel progress={userData.storage_take / 1000000 / 1000} className='cloud-progress'/></div>
-            {userData.subscription ?(<h5>{(userData.storage_take / 1000000 / 1000).toFixed(2)} / 100 GB</h5>):(<h5>{(userData.storage_take / 1000000 / 1000).toFixed(2)} / 10 GB</h5>)}
-            <h2 className='cloud-title'>Cloud Storage</h2>
-          </div>
-          <hr />
-          {/*CLOUD SPACE*/}
-          <div className='follow-title'>
-            <h1>Follow us for the latest news</h1>
-            <div className='follow-row'>
-              <a style={{color:"black"}} href="https://www.instagram.com/clippify.app/"> 
-                <div className='socialMedia'>
-                  <InstagramIcon />
-                  <h3>Instagram</h3>
-                </div>
-              </a>
-
-              <a style={{color:"black"}} href="https://www.tiktok.com/@clippify.app">
-                <div className='socialMedia'>
-                  <ScreenshotIcon />
-                  <h3>Tiktok</h3>
-                </div>
-              </a>
-              <div className='socialMedia'>
-                <YouTubeIcon />
-                <h3>YouTube</h3>
-              </div>
-              <div className='socialMedia'>
-                <TwitterIcon />
-                <h3>Twitter</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-    {/*RECENTLY ADDED*/}
-    <div className="memory_title">
-      <h2>Recently Openned</h2>
-    </div>
-    <div className="ag-format-container">
-      <div className="ag-courses_box2">
-        {/*ADDED DOM*/}
-        {recentFiles.length === 0 ? (
-          <div className="no-document">No Recent Clips's added</div>
-        ) : (
-          <Link to={`/folder/${recentFiles.folder_id}/${recentFiles.id}`}>
-            <FileCard 
-              imgSrc={recentFiles.img} 
-              imgAlt="file img" 
-              title={recentFiles.title} 
-              tags={recentFiles.tag} 
-              related_count={recentFiles.related_count} 
-              video_size={recentFiles.video_size}
-            />
-          </Link>
-        )}
-      </div>
-    </div>
-    <div className="memory_title" >
-      <h2>Your Memory</h2>
-    </div>
-    <div className="ag-format-container" > 
-      <div className="ag-courses_box" >
+<Container fluid>
+  <Row>
+    <Col>
+      <DarkVariantExample />
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <h1>Recently Openned<Badge style={{marginLeft:10}} bg="secondary">New</Badge> </h1>  
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <RecentCard image={recentFiles.img} title={recentFiles.title} recentNumber={recentFiles.related_count} size={recentFiles.video_size} />
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+    <h1>Your Folders<Badge style={{marginLeft:10}} bg="secondary">New</Badge> </h1>  
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+    <div className="ag-courses_box" >
         {/*ADDED DOM*/}
         {folders.length === 0 ? (
           <div className="no-folder">
@@ -192,34 +145,17 @@ return (
             </a>
           </div>
         ) : (
-          folders.map((folder) => 
-            folder && folder.id ? (
-              <div className="ag-courses_item" key={folder.id}>
-                <Link to={`/folder/${folder.id}`}>
-                  <div className="ag-courses-item_link">
-                    <div className="ag-courses-item_bg" style={{background: folder.color}} />
-                    <div className="ag-courses-item_title" >{folder.title}</div>
-                    <div className='ag-bottom'>
-                      <div className="ag-courses-item_date-box">
-                        <h3>{folder.files_count} Files</h3>
-                        <SnippetFolderIcon className='ag-folder-icon'/>
-                      </div>
-                      <div className='auto-sync'>
-                        <CloudSyncIcon className='ag-auto-sync'/>
-                        <h6>Auto Sync</h6>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
+          folders.map((folderD) => 
+            folderD && folderD.id ? (
+              <FolderCard folder={folderD} />
             ):null
           )
         )}
       </div>
-    </div>
-  </div>
-  <BasicSpeedDial  />
-</div>
+    </Col>
+  </Row>
+</Container>
+
 )}
 
 

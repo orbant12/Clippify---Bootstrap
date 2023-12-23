@@ -2,7 +2,6 @@ import React, { createContext, useState } from 'react';
 import {  BrowserRouter as Router,  Routes,  Route} from "react-router-dom";
 import { Home } from "./pages/Home"
 import { Memory } from "./pages/Memory"
-import './Css/sidebar.css'
 import Login from "./pages/Login"
 import './firebase'
 import UserAuthContext from './context/UserAuthContext';
@@ -24,6 +23,8 @@ import Cookie from './pages/Policies/Cookie';
 import Contact from './pages/Policies/Contact';
 import Feedback from './pages/Policies/Feedback';
 
+import  ThemeProvider from 'react-bootstrap/ThemeProvider';
+
 
 export const ThemeContext = createContext(null)
 
@@ -42,7 +43,10 @@ const toggleTheme = () => {
 };
 
 return (
-
+<ThemeProvider
+  breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+  minBreakpoint="xxs"
+>
 <ThemeContext.Provider value={{ theme, toggleTheme}}>
   <div className='app' id={theme}>
     <UserAuthContext>
@@ -73,6 +77,7 @@ return (
     </UserAuthContext>
   </div>
 </ThemeContext.Provider >
+</ThemeProvider>
 
 )}
 

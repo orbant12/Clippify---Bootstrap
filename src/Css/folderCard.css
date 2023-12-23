@@ -1,126 +1,6 @@
+/* Card */
 
-
-.home-card {
-    padding: 30px;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 300px;
-    padding-left: 30px;
-    border: 1px solid rgba(255, 255, 255, .25);
-    border-radius: 20px;
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    transition: ease-in-out .2s;
-  }
-  
-  .home-card:hover{
-   
-    transform: scale(1.01);
-  }
-
-
-  
-
-.usage-box{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 50px;
-    width: 1500px;
-}
-
-.usage-title{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: 300px;
-}
-
-.follow-title{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 1050px;
-  height: 150px;
-  justify-content: space-between;
-  
-}
-
-.socialMedia{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.follow-row a:any-link{
-  color: black;
-}
-
-.socialMedia:hover{
-  transition: ease-in-out .2s;
-  cursor: pointer;
-  transform: scale(1.08);
-}
-
-.follow-row{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 600px;
-}
-
-.title-main{
-
-}
-
-.title-sub{
-    font-size: 15px;
-    opacity: 0.7;
-}
-
-.cloud{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 100px;
-    width: 500px;
-    padding-left: 100px;
-    padding-right: 100px;
-  
-
-}
-
-.cloud-progress{
-
-}
-
-.cloud-title{
-    font-size: 20px;
-}
-
-/*RECENTLY ADDED*/
-
-.memory_title h2 {
-    padding-left: 30px;
-  }
-  
-  .memory_title h2 a{
-    color: #121212;
-    font-weight: 300;
-    font-size: 20px;
-    padding-left: 1500px;
-  }
-  .memory_title h2 a:hover{
-   cursor: pointer;
-   font-weight: 500;
-   color: #191d28;
-  }
-
-  /* Card */
-
-.home .ag-format-container {
+.ag-format-container {
 
     margin: 0 auto 0 20px;
     padding-left: 100px;
@@ -147,6 +27,7 @@
  
     padding: 20px 0;
     padding-bottom: 50px;
+    
   }
   .ag-courses_item {
     -ms-flex-preferred-size: calc(33.33333% - 30px);
@@ -156,8 +37,10 @@
     
     overflow: hidden;
     cursor: pointer;
-    
+    background-color: whitesmoke;
     border-radius: 20px;
+    border-top-right-radius: 0px;
+    
   }
 
   .ag-courses-item_link:hover,
@@ -165,6 +48,7 @@
     text-decoration: none;
     color: black;
     z-index: 9;
+    
    
     
   }
@@ -206,6 +90,8 @@
     -webkit-transition: all .5s ease;
     -o-transition: all .5s ease;
     transition: all .5s ease;
+   
+    
   }
   
   .ag-bottom{
@@ -317,7 +203,7 @@ opacity: 0.8;
 
 @media (1670px <= width <= 1780px) {
 
-  .home .ag-format-container {
+.ag-format-container {
 
 
     margin: 0 auto 0 20px;
@@ -332,7 +218,7 @@ opacity: 0.8;
     
    
 
-  .home .ag-format-container {
+.ag-format-container {
 
 
   margin: 0 auto 0 20px;
@@ -345,7 +231,7 @@ opacity: 0.8;
 
 
 
-.home .ag-format-container {
+.ag-format-container {
 
 
   width: 1300px;
@@ -353,7 +239,7 @@ opacity: 0.8;
   margin-left: -60px;
 }
 
-.home .ag-courses-item_link {
+.ag-courses-item_link {
   display: block;
   padding: 30px 20px;
   width: 350px;
@@ -362,7 +248,7 @@ opacity: 0.8;
   position: relative;
 }
 
-.home .ag-courses-item_link_plus {
+.ag-courses-item_link_plus {
   display: block;
   padding: 30px 20px;
   background-color: none;
@@ -395,14 +281,14 @@ opacity: 0.8;
     
   
 
-  .home .ag-format-container {
+.ag-format-container {
 
 width: 1100px;
   margin: 0 auto 0 auto;
  margin-left: -60px;
 }
 
-.home .ag-courses-item_link {
+.ag-courses-item_link {
   display: block;
   padding: 30px 20px;
   width: 300px;
@@ -411,7 +297,7 @@ width: 1100px;
   position: relative;
 }
 
-.home .ag-courses-item_link_plus {
+.ag-courses-item_link_plus {
   display: block;
   padding: 30px 20px;
   background-color: none;
@@ -424,7 +310,7 @@ width: 1100px;
   position: relative;
 }
 
-.home .ag-courses-item_title_plus{
+.ag-courses-item_title_plus{
   min-height: 80px;
   margin: 45px 115px 0px;
 

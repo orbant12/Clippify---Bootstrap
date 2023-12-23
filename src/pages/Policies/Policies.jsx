@@ -2,7 +2,6 @@
 
 
 import "../../Css/policies.css"
-import "../../Css/sidebar.css"
 import VpnLockIcon from '@mui/icons-material/VpnLock';
 import AddModeratorIcon from '@mui/icons-material/AddModerator';
 import GavelIcon from '@mui/icons-material/Gavel';

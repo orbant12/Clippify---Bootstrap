@@ -28,6 +28,15 @@ import Button from '@mui/material/Button';
 import DesignServicesIcon from '@mui/icons-material/DesignServices';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+//ASSETS
+import DarkVariantExample from "../components/HomePage/Carousel"
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Badge from 'react-bootstrap/Badge'
+import RecentCard from '../components/HomePage/RecentCard';
+import FolderCard from '../components/HomePage/FolderCard';
+import Example from "../components/Folder/VideoUpload"
 //CSS
 import '../Css/folder.css';
 
@@ -413,17 +422,10 @@ const navigateBack = () => {
 
 
 return(
-<div className='folder-container'>
-  <div className='zero_bar-row-folder'> 
-    <div className='back-button-folder'>
-      <ArrowBackIosNewIcon onClick={navigateBack}/> 
-    </div>
-  </div>
-  <div className="folder" >
-    {/*FIRST BAR*/}
-    <div className='first_bar-title'>    
-      <div className="first_bar-left" >
-        {isEditing ? (
+<Container fluid>
+  <Row>
+    <Col>
+    {isEditing ? (
           <input
             className="folder-input-change"
             type="text"
@@ -440,136 +442,30 @@ return(
         {isEditing ? 
           <h5 style={{opacity:0.8,paddingTop:5}}>Press Enter to OK</h5>:null
         }
+    </Col>
+    <Col>
+      <div onClick={handleTitleBlur}>
+        <DesignServicesIcon/>
       </div>
-      <div>
-        <DesignServicesIcon sx={{fontSize:30}} className='first_bar-edit' onClick={handleTitleClick} />
-        <DeleteForeverIcon sx={{fontSize:30,ml:3}} className='first_bar-delete' onClick={handleOpen} />
-        <Modal
-          open={open}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Are You Sure ?
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              You will lose all of your documents permanently
-            </Typography>
-            <Button sx={{color:'red',ml:32,mt:5}} onClick={handleDelete}>DELETE</Button>
-          </Box>
-        </Modal>
+      <div onClick={handleDelete}>
+        <DeleteForeverIcon style={{marginLeft:50}} />
       </div>
-    </div>
-    {/*MODAL  */}
-    {isActive?
-      <div 
-        className= {`popup-fodler ${isActive ? 'active' : ''}`}
-        id="popup-1" onSubmit={handleSubmit}
-      >
-        <div className="overlay-popup-fodler"></div>
-        <div className="content-popup-fodler">
-          <div className="close-btn-fodler" onClick={togglePopup} id="popClose">&times;</div>
-          <h1 className="Add-New-title">Add New</h1>
-          <div className="popup-fodler-con">
-            {/*<MultipleSelectCheckmarks />*/}
-            <DividerStack setSelectedPopUp={setSelectedPopUp}/>
-          </div>
-          <Button id="add-btn-file" onClick={pickedPopup} variant="contained">Create</Button>
-        </div>
-      </div>:null
-    }
-    {/*LINK MODAl  */}
-    {isLinkActive?
-      <div 
-        className= {`popup-fodler ${isLinkActive ? 'active' : ''}`}
-        id="popup-link" 
-        onSubmit={handleSubmit}
-      >
-        <div className="overlay-popup-fodler-link"></div>
-        <div className="content-popup-fodler-link">
-          <div className="close-btn-fodler-link" onClick={pickedPopup} id="popClose-link">Back</div>
-          <TextFieldFile fileTitle={setFileTitle}/>
-          <div className="popup-fodler-con-link">
-            {/*<MultipleSelectCheckmarks />*/}
-            <div className="add-link2">
-              {linkProvided?
-                <h2 className="txt-field-title">Paste in The URL</h2>:null
-              }
-              <VideoUrlApp 
-                subscriptionState={userData.subscription} 
-                setCreateBtn={setIsAddedOn} 
-                setPassedDataUrl={setTrimmedVideoFile} 
-                linkProvided={setLinkProvided} 
-                fileImage={setFileImage} 
-                setExtractMeta={setMetaData} 
-                setPassedAudioDataUrl={setAudioFile}
-              />
-            </div>
-            <div className="add-link-notes2">
-              <h1>Add Features </h1>
-              {/**/}
-              <ZeroWidthStack/>
-              {/*TAGS */}
-              <MultipleSelectCheckmarks selectedTag={setTag}/>
-            </div>
-          </div>
-          {isAddedOn?
-            <div className="create-btn-bottom" onClick={createFile}><DelayingAppearance id="create-upload2" variant="contained"/></div> :null
-          }
-        </div>
-      </div>:null
-    }
-    {/*Upload MODAl  */}
-    {isUploadActive?
-      <div className= {`popup-fodler ${isUploadActive ? 'active' : ''}`}id="popup-upload" onSubmit={handleSubmit}>
-        <div className="overlay-popup-fodler-upload"></div>
-        <div className="content-popup-fodler-upload">
-          <div className="close-btn-fodler-upload" onClick={pickedPopup} id="popClose-upload">Back</div>
-          <TextFieldFile fileTitle={setFileTitle}/>
-          <div className="popup-fodler-con-upload">
-              {/*<MultipleSelectCheckmarks />*/}
-            <div className="add-link">
-              {uploadProvided?
-                <h2 className="txt-field-title2">Upload File</h2>:null
-              }
-              <VideoApp subscriptionState={userData.subscription} setCreateBtn={setIsAddedOn} videoURL={setTrimmedVideoFile} uploadProvided={setUploadProvided} fileImage={setFileImage}  setExtractMeta={setMetaData} setPassedAudioDataUrl={setAudioFile}/>
-            </div>
-            <div className="add-link-notes">
-              <h1>Add Features </h1>
-              <h5>You can add them later</h5>
-              <ZeroWidthStack/>
-              <MultipleSelectCheckmarks selectedTag={setTag}/>
-            </div>                          
-          </div>
-          {isAddedOn? 
-            <div className="create-btn-bottom-1" onClick={createFile}><DelayingAppearance id="create-upload" variant="contained"/></div> :null
-          }
-        </div>
-      </div>:null
-    }
-    {/*SEC BAR*/}
-    {!isActive && !isLinkActive && !isUploadActive?
-      <div className="file-map-container">
-        {userFile.length === 0 ? (
-          <div className="no-doc">No files added</div>
-        ) : (
-          userFile.map((file) =>
-            file && file.id ? (
-              <div key={file.id}>
-                <Link to={`/folder/${folderID}/${file.id}`}>
-                  {file && file.img && file.title && (
-                    <FileCard imgSrc={file.img} imgAlt="file img" title={file.title} tags={file.tag} related_count={file.related_count} video_size={file.video_size}/>
-                  )}
-                </Link>
-              </div>
-            ):null)
-        )}
-      </div>:null 
-    }
-    <BasicSpeedDial togglePopup={togglePopup} />
-  </div>     
-</div>
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+    {userFile.map((file) => (
+      <div key={file.id}>
+        <FileCard imgSrc={file.img} title={file.title} tags={file.tag} video_size={file.video_size} />
+      </div>
+    ))}
+    </Col>
+  </Row>
+
+<Row>
+<Example />
+</Row>
+</Container>
 )
 }
 

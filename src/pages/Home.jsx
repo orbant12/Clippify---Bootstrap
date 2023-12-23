@@ -113,7 +113,7 @@ useEffect(() => {
 
 
 return (
-<Container fluid>
+<Container  >
   <Row>
     <Col>
       <DarkVariantExample />

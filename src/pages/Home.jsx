@@ -20,6 +20,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import ScreenshotIcon from '@mui/icons-material/Screenshot';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import BasicSpeedDial from "../assets/FileAdd/addBtn"
 
 
 export function Home({folderUrl}) {
@@ -217,6 +218,7 @@ return (
       </div>
     </div>
   </div>
+  <BasicSpeedDial  />
 </div>
 )}
 

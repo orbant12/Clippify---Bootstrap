@@ -113,18 +113,18 @@ useEffect(() => {
 
 
 return (
-<Container  >
-  <Row>
+<Container fluid className='justify-content-center' style={{paddingLeft:120}}>
+  <Row style={{marginBottom:100}}>
     <Col>
       <DarkVariantExample />
     </Col>
   </Row>
-  <Row>
+  <Row >
     <Col>
       <h1>Recently Openned<Badge style={{marginLeft:10}} bg="secondary">New</Badge> </h1>  
     </Col>
   </Row>
-  <Row>
+  <Row style={{marginBottom:100}}>
     <Col>
       <RecentCard image={recentFiles.img} title={recentFiles.title} recentNumber={recentFiles.related_count} size={recentFiles.video_size} />
     </Col>

@@ -9,12 +9,14 @@ import { IconContext } from 'react-icons/lib';
 
 const Nav = styled.div`
   background: #15171c;
-  height: 80px;
+  height: 100%;
   display: flex;
   justify-content: flex-start;
+  position: fixed;
   align-items: center;
   width: 100px;
   background-color: transparent;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 `;
 
 const NavIcon = styled(Link)`
@@ -22,6 +24,8 @@ const NavIcon = styled(Link)`
   font-size: 2rem;
   height: 80px;
   display: flex;
+  top: 0;
+  position: absolute;
   justify-content: flex-start;
   align-items: center;
   color: #fff;
@@ -42,6 +46,7 @@ const SidebarNav = styled.nav`
 
 const SidebarWrap = styled.div`
   width: 100%;
+  margin-top: 80px;
 `;
 
 const Sidebar = () => {

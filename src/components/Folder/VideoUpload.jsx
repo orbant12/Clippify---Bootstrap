@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
 function Example() {
-  const values = [true, 'sm-down', 'md-down', 'lg-down', 'xl-down', 'xxl-down'];
+  
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(false);
 
@@ -25,20 +25,19 @@ function Example() {
           <Modal.Title>Add Media</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <Container fluid>
-                <Row>
-                    <Col>
-                        <Card>
-                            Link
-                        </Card>
-                    </Col>
-                    <Col>
-                        <Card>
-                            Link
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
+            <div className='d-flex col justify-content-center'> 
+                <div className='d-flex row justify-content-evenly'>
+                    <div className='card' style={{padding:50}}>
+                        Link
+                    </div>
+        
+                    <div className='card' style={{padding:50}}>
+                        Link
+                    </div>
+                </div>
+          
+                <Button style={{width:50,marginTop:50}} />
+                </div>
         </Modal.Body>
       </Modal>
     </>

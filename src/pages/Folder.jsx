@@ -422,9 +422,9 @@ const navigateBack = () => {
 
 
 return(
-<Container fluid>
-  <Row>
-    <Col>
+<Container fluid style={{paddingLeft:120,justifyContent:"center",alignItems:"center"}}>
+  <Row style={{width:"100%",marginRight:"auto",marginLeft:"auto",paddingTop:20,alignItems:"center"}}>
+    <Col style={{border:"1px solid black"}}>
     {isEditing ? (
           <input
             className="folder-input-change"
@@ -443,13 +443,11 @@ return(
           <h5 style={{opacity:0.8,paddingTop:5}}>Press Enter to OK</h5>:null
         }
     </Col>
-    <Col>
-      <div onClick={handleTitleBlur}>
+    <Col className='col-auto' style={{border:"1px solid black"}} >
         <DesignServicesIcon/>
-      </div>
-      <div onClick={handleDelete}>
-        <DeleteForeverIcon style={{marginLeft:50}} />
-      </div>
+    </Col>
+    <Col className='col-auto' style={{border:"1px solid black"}} >
+        <DesignServicesIcon/>
     </Col>
   </Row>
   <Row>

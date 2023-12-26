@@ -87,7 +87,7 @@
 /*SEc BAr*/
 
 .file-map-container{
-  width: 100%;
+  width: 120%;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
@@ -105,7 +105,8 @@
   height: 200px;
   border: 1px solid black;
   margin-top: 50px;
-  
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 30px;
   display: flex;
   flex-direction: row;
@@ -115,6 +116,26 @@
   backdrop-filter: blur(10px); /* Adjust the blur amount as needed */
 
 }
+
+@media (max-width: 768px) {
+  .file-map{
+    width: 125%;
+    margin-left: -100px;
+  }
+  .map-img{
+    width: 100px;
+    margin-left: 20px;
+    align-items: center;
+    height: 150px;
+  }
+  .img-content{
+    width: 150px;
+    border-radius: 20px;
+    height: 10px;
+  }
+
+}
+
 .file-map:hover{
   background-color: white;
   cursor: pointer;

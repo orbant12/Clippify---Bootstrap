@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { collection, doc, getDocs,query,limit,getDoc} from 'firebase/firestore';
 import { db } from "../firebase";
 //CSS
-
+import '../Css/home.css';
 //ASSETS
 import DarkVariantExample from "../components/HomePage/Carousel"
 import Container from 'react-bootstrap/Container';
@@ -113,28 +113,28 @@ useEffect(() => {
 
 
 return (
-<Container fluid className='justify-content-center' style={{paddingLeft:120}}>
-  <Row style={{marginBottom:100}}>
+<Container fluid className='justify-content-center' >
+  <Row style={{marginBottom:100,paddingLeft:100}}>
     <Col>
       <DarkVariantExample />
     </Col>
   </Row>
-  <Row >
+  <Row className='home-page-rows' >
     <Col>
       <h1>Recently Openned<Badge style={{marginLeft:10}} bg="secondary">New</Badge> </h1>  
     </Col>
   </Row>
-  <Row style={{marginBottom:100}}>
+  <Row className='home-page-rows' style={{marginBottom:100}}>
     <Col>
       <RecentCard image={recentFiles.img} title={recentFiles.title} recentNumber={recentFiles.related_count} size={recentFiles.video_size} />
     </Col>
   </Row>
-  <Row>
+  <Row className='home-page-rows'>
     <Col>
     <h1>Your Folders<Badge style={{marginLeft:10}} bg="secondary">New</Badge> </h1>  
     </Col>
   </Row>
-  <Row>
+  <Row className='home-page-rows'>
     <Col>
     <div className="ag-courses_box" >
         {/*ADDED DOM*/}

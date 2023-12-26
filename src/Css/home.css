@@ -1,0 +1,9 @@
+.home-page-rows{
+    padding-left: 100px;
+}
+
+@media (max-width: 768px) {
+    .home-page-rows{
+        padding-left: 0px;
+    }
+  }

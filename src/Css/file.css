@@ -1,3 +1,17 @@
+.nav-bar-menu{
+  display:flex;
+  flex-direction:column;
+  margin-left:auto;
+  margin-right:auto;
+  align-items:center
+}
+
+@media (max-width: 768px) {
+  .nav-bar-menu{
+    display:none;
+  }
+}
+
 .file-page{
     display: flex;
     flex-direction: column;
@@ -10,15 +24,15 @@
 
 .zero_bar-row{
   position: absolute;
-  margin-left: -1400px;
-  margin-top: 50px;
+  left: 30px;
+  top: 70px;
 
   
 }
 .zero_bar-row2{
   position: absolute;
-  margin-top: 50px;
-  margin-left: -30px;
+  left: 30px;
+  top: 70px;
 }
 .back-button{
   display: flex;

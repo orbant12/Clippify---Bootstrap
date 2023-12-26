@@ -572,7 +572,7 @@ return (
     <div className='file-page'>
       {/*1 BAR */}
       <Row style={{width:"80%",marginRight:"auto",marginLeft:"auto",paddingTop:20,alignItems:"center"}}>
-        <Col style={{border:"1px solid black"}}>
+        <Col >
         {isEditing ? (
               <input
                 className="folder-input-change"

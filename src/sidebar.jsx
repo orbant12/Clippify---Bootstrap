@@ -6,6 +6,13 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './components/Sidebar/SidebarData';
 import SubMenu from './components/Sidebar/SubMenu';
 import { IconContext } from 'react-icons/lib';
+import HomeIcon from '@mui/icons-material/Home';
+import SnippetFolderIcon from '@mui/icons-material/SnippetFolder';
+import PrivacyTipIcon from '@mui/icons-material/PrivacyTip';
+import LogoutIcon from '@mui/icons-material/Logout';
+import Avatar from '@mui/material/Avatar';
+import PaymentsIcon from '@mui/icons-material/Payments';
+import './Css/file.css';
 
 const Nav = styled.div`
   background: #15171c;
@@ -36,6 +43,7 @@ const NavIcon = styled(Link)`
   color: #fff;
 `;
 
+
 const SidebarNav = styled.nav`
   background: #15171c;
   width: 250px;
@@ -59,6 +67,8 @@ const Sidebar = () => {
 
   const showSidebar = () => setSidebar(!sidebar);
 
+
+
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
@@ -66,37 +76,33 @@ const Sidebar = () => {
           <NavIcon to='#'>
             <FaIcons.FaBars style={{color:"black"}} onClick={showSidebar} />
           </NavIcon>
-          <div style={{display:"flex",flexDirection:"column",marginLeft:"auto",marginRight:"auto"}}>
+          <div className='nav-bar-menu' >
 
           
-          <div style={{display:"flex",flexDirection:"column",marginLeft:"auto",marginRight:"auto"}}>
-            <div>
-              valami
+            <div style={{display:"flex",flexDirection:"column",marginLeft:"auto",marginRight:"auto",height:300,justifyContent:"space-between",position:"absolute",top:200}}>
+              <Link to={"/"}>
+              <HomeIcon />
+              </Link>
+              <hr />
+              <Link to={"/memory"}>
+              <SnippetFolderIcon />
+              </Link>
+              <hr />
+              <Link to={"/policies"}>
+              <PrivacyTipIcon />
+              </Link>
+              <hr />
+              <Link to={"/subscription"}>
+              <PaymentsIcon />
+              </Link>
             </div>
-            <hr />
-            <div>
-              valami
-            </div>
-            <hr />
-            <div>
-              valami
-            </div>
-          </div>
 
-          <div style={{display:"flex",flexDirection:"column",marginLeft:"auto",marginRight:"auto",marginTop:200}}>
-            <div>
-              valami
+            <div style={{display:"flex",flexDirection:"column",marginLeft:"auto",marginRight:"auto",marginTop:100,alignItems:"center",position:"absolute",bottom:30}}>
+              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+              <hr />
+              <LogoutIcon />
             </div>
-            <hr />
-            <div>
-              valami
-            </div>
-            <hr />
-            <div>
-              valami
-            </div>
-          </div>
-          
+
           </div>
         </Nav>
         <SidebarNav sidebar={sidebar}>

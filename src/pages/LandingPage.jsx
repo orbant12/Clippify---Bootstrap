@@ -7,6 +7,8 @@ import React, {useState} from "react"
 //ASSETS AND IMAGES AND ICONS
 import AnualSwitch from "../assets/Pricing/anualSwitch"
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
+
+//IMAGES
 import laptopOnly from '../assets/Images/file-page.svg';
 import phoneOnly from '../assets/Images/Landing-Ai.svg';
 import supporter1 from '../assets/Images/supporter-2.svg';

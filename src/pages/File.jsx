@@ -644,8 +644,6 @@ return (
       </div>
       {/*3 BAR*/}
       <div className='third_bar-features-cont'>
-        <div className='third_bar-top'>
-        </div>
         <div className='rich-txt-editor'>
           {/*EDITOR*/}
           <Editor 

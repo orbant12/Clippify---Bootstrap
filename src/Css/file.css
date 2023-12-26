@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    margin-left: 100px;
+    align-items: center;
+  
 
 }
 
@@ -88,16 +89,31 @@
 .sec_bar-cont{
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
     justify-content: space-between;
-    margin-left: 120px;
-    margin-top: 120px;
+    align-items: center;
+    margin-top: 100px;
+ 
+    
     
 }
+
+@media (max-width: 1208px) {
+  .sec_bar-cont{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: space-between;
+}
+}
+
 
 .sec_bar-video{
 
 }
+
 .sec_bar-video-main{
   margin-left: 100px;
   margin-bottom: -50px;
@@ -171,11 +187,12 @@
 
 .main-view-select{
   display: flex;
-  flex-direction: row;
-  width: 1000px;
-  justify-content: center;
-  margin-left: 120px;
-  margin-top: 100px;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
   cursor: pointer;
   z-index: 9;
 }
@@ -183,22 +200,16 @@
 /*3 BAR*/
 
 .third_bar-features-cont{
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    margin-left: 100px;
-    width: 1000px;
- 
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+  margin-top: 50px;
   
 }
 
-.third_bar-top{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-left: -230px;
-    width: 1000px;
-}
+
 
 .feature-slider{
     box-shadow: none;
@@ -251,13 +262,22 @@ body {
   .rtl {
     text-align: right;
   }
+
+  .rich-txt-editor{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   
   .editor-container {
-    padding-top: 100px;
-    margin: 20px auto 20px auto;
-    margin-top: -50px;
     border-radius: 2px;
-    max-width: 1200px;   /*WIDTH OF THE PAPER*/
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;   /*WIDTH OF THE PAPER*/
     color: #000;
     position: relative;
     line-height: 20px;
@@ -265,13 +285,15 @@ body {
     text-align: left;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    padding-bottom: 230px;
+    border: 1px solid black;
   }
   
   .editor-inner {
     background: #fff;
     position: relative;
-    height: 800px;   /*HEIGHT OF THE PAPER*/
+    width: 100%;
+    border: 1px solid black;
+    height: 600px;   /*HEIGHT OF THE PAPER*/
   }
   
   .editor-input {
@@ -561,6 +583,8 @@ display: none;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     vertical-align: middle;
+    width: 100%;
+    overflow-x: scroll;
   }
   
   .toolbar button.toolbar-item {
@@ -804,7 +828,7 @@ display: none;
     left: -10000px;
     margin-top: -6px;
     max-width: 300px;
-    width: 100%;
+    width: 80%;
     opacity: 0;
     background-color: #fff;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);

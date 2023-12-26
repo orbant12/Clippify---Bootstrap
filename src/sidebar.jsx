@@ -66,6 +66,38 @@ const Sidebar = () => {
           <NavIcon to='#'>
             <FaIcons.FaBars style={{color:"black"}} onClick={showSidebar} />
           </NavIcon>
+          <div style={{display:"flex",flexDirection:"column",marginLeft:"auto",marginRight:"auto"}}>
+
+          
+          <div style={{display:"flex",flexDirection:"column",marginLeft:"auto",marginRight:"auto"}}>
+            <div>
+              valami
+            </div>
+            <hr />
+            <div>
+              valami
+            </div>
+            <hr />
+            <div>
+              valami
+            </div>
+          </div>
+
+          <div style={{display:"flex",flexDirection:"column",marginLeft:"auto",marginRight:"auto",marginTop:200}}>
+            <div>
+              valami
+            </div>
+            <hr />
+            <div>
+              valami
+            </div>
+            <hr />
+            <div>
+              valami
+            </div>
+          </div>
+          
+          </div>
         </Nav>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>

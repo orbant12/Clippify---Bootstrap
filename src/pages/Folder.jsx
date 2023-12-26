@@ -1,42 +1,25 @@
 //REACT & Contexts
 import * as React from 'react';
 import { useEffect, useState } from "react";
-import { useParams,useNavigate} from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from '../context/UserAuthContext';
 //FIREBASE
-import { ref, uploadString, getDownloadURL, uploadBytes,deleteObject} from 'firebase/storage';
-import {v4} from "uuid";
-import { app,storage } from "../firebase";
-import { getFirestore,doc, collection, getDoc,setDoc,getDocs,deleteDoc, updateDoc} from  'firebase/firestore';
+import { collection, deleteDoc, doc, getDoc, getDocs, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
+import { deleteObject, getDownloadURL, ref, uploadBytes, uploadString } from 'firebase/storage';
+import { v4 } from "uuid";
+import { app, storage } from "../firebase";
 //ASSETS
-import VideoApp from "../assets/videoTrim/videoApp";
-import VideoUrlApp from "../assets/videoTrim/videoUrlApp";
-import ZeroWidthStack from "../assets/FileAdd/featureSelect";
-import BasicSpeedDial from "../assets/FileAdd/addBtn"
 import FileCard from "../assets/FileAdd/fileCard";
-import MultipleSelectCheckmarks from '../assets/FileAdd/tagbar'
-import TextFieldFile from '../assets/FileAdd/textField'
-import DividerStack from "../assets/FileAdd/fileAddCards";
-import DelayingAppearance from "../assets/FileAdd/LoadingBtn";
-//MUI
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
+
 //ICONS
 import DesignServicesIcon from '@mui/icons-material/DesignServices';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+
 //ASSETS
-import DarkVariantExample from "../components/HomePage/Carousel"
+
+import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Badge from 'react-bootstrap/Badge'
-import RecentCard from '../components/HomePage/RecentCard';
-import FolderCard from '../components/HomePage/FolderCard';
-import Example from "../components/Folder/VideoUpload"
+import Example from "../components/Folder/VideoUpload";
 //CSS
 import '../Css/folder.css';
 
@@ -453,15 +436,17 @@ return(
   <Row>
     <Col>
     {userFile.map((file) => (
+      <Link to={`/folder/${id}/${file.id}`}>
       <div key={file.id}>
         <FileCard imgSrc={file.img} title={file.title} tags={file.tag} video_size={file.video_size} />
       </div>
+      </Link>
     ))}
     </Col>
   </Row>
 
 <Row>
-<Example />
+<Example handleUploadTrigger={createFile} setTitleInput={setFileTitle} setFileImageEXT={setFileImage} setExtractMetaEXT={setMetaData} setPassedAudioDataUrlEXT={setAudioFile} setVideoUrlEXT={setTrimmedVideoFile} />
 </Row>
 </Container>
 )

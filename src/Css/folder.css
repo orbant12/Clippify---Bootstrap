@@ -87,7 +87,7 @@
 /*SEc BAr*/
 
 .file-map-container{
-  width: 1000px;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
@@ -103,7 +103,7 @@
 .file-map{
   width: 80%;
   height: 200px;
-  
+  border: 1px solid black;
   margin-top: 50px;
   
   border-radius: 30px;
@@ -219,8 +219,8 @@
   }
   
 .card-item{
-  width: 350px;
-  height: 350px;
+  width: 200px;
+  height: 200px;
 }
 
 
@@ -771,22 +771,34 @@ background-color: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding-left: 50px;
+  overflow-x: hidden;
 }
 
 .item-box-link{
-  padding-top: 130px;
-
+    padding-top: 50px;
+    width: 180px;
+    
 
 }
+.item-box-link h2{
+  font-size: 20px;
+  font-weight: 700;
+}
 .or-txt{
-  padding-top: 130px;
+  padding-top: 100px;
+  font-size: 12px;
 }
 
 .item-desc{
-  padding-top: 50px;
+  padding-top: 20px;
   text-align: center;
-padding-left: 40px;
-  width: 300px;
+  width: 150px;
+  padding-left: 30px;
+}
+
+.item-desc h5{
+  font-size: 10px;
 }
 
 .Add-New-title{

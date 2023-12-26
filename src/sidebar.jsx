@@ -17,6 +17,11 @@ const Nav = styled.div`
   width: 100px;
   background-color: transparent;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+  @media (max-width: 768px) {
+    height: 9%;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2);
+  }
 `;
 
 const NavIcon = styled(Link)`

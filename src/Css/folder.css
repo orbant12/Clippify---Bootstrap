@@ -826,3 +826,32 @@ background-color: none;
   font-size: 30px;
   padding-top: 20px;
 }
+
+.file-map{
+  border: 4px solid black;
+  border-top: 4px solid black;
+  border-bottom: 10px solid black;
+  border-right: 10px solid black;
+  background-color: rgba(110, 108, 108, 0.5); 
+  backdrop-filter: blur(10px); /* Adjust the blur amount as needed */
+}
+
+.file-map:hover{
+  background-color: black;
+}
+
+
+.related-video-cont{
+  color: var(--dark-primary-color);
+}
+.related-video{
+  color: var(--dark-primary-color);
+}
+.storage-take-number{
+  color: var(--dark-primary-color);
+}
+
+.add-icon-tag:hover{
+
+    color: var(--dark-text-color);
+  }

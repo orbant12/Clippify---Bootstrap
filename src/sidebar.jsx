@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import { SidebarData } from './components/Sidebar/SidebarData';
 import SubMenu from './components/Sidebar/SubMenu';
+import SubMenu2 from './components/Sidebar/SubMenu2';
 import { IconContext } from 'react-icons/lib';
 import HomeIcon from '@mui/icons-material/Home';
 import SnippetFolderIcon from '@mui/icons-material/SnippetFolder';
@@ -13,6 +13,15 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import Avatar from '@mui/material/Avatar';
 import PaymentsIcon from '@mui/icons-material/Payments';
 import './Css/file.css';
+import { useAuth } from './context/UserAuthContext';
+import { collection, doc, getDocs,getDoc} from 'firebase/firestore';
+import { db } from "./firebase";
+
+
+import * as IoIcons from 'react-icons/io';
+import * as RiIcons from 'react-icons/ri';
+
+
 
 const Nav = styled.div`
   background: #15171c;
@@ -60,14 +69,99 @@ const SidebarNav = styled.nav`
 const SidebarWrap = styled.div`
   width: 100%;
   margin-top: 80px;
+  overflow: scroll;
+  scrollbar-width: none;
+  scrollbar-color: transparent;
+  scroll-behavior: smooth;
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
 `;
 
 const Sidebar = () => {
+
+  const [SidebarData, setSidebarData] = useState([
+    {
+      title: 'Home',
+      path: '/overview',
+      icon: <AiIcons.AiFillHome />,
+
+    },
+    {
+      title: 'Folders',
+      icon: <IoIcons.IoIosPaper />,
+      iconClosed: <RiIcons.RiArrowDownSFill />,
+      iconOpened: <RiIcons.RiArrowUpSFill />,
+
+      subNav: [
+      ]
+    },
+    {
+      title: 'Subscriptions',
+      path: '/subscription',
+      icon: <FaIcons.FaCartPlus />
+    },
+    {
+      title: 'Settings',
+      path: '/messages',
+      icon: <FaIcons.FaEnvelopeOpenText />,
+
+    },
+    {
+      title: 'Support',
+      path: '/support',
+      icon: <IoIcons.IoMdHelpCircle />
+    }
+  ]);
+
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
-
-
+  const { currentuser } = useAuth();
+  const [userData, setUserData] = useState(null);
+  //UPDATES DEPENDING ON USER "FILE-Storage" DOCS
+  useEffect(() => {
+    if (!currentuser) {
+      setUserData([]);
+      return;
+    }
+    // USER ID & FIRESTORE REF
+    const currentUserId = currentuser.uid;
+    const colRef = collection(db, "users", currentUserId, "File-Storage");
+    // Fetch all documents (folders) in the subcollection
+    getDocs(colRef)
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          SidebarData[1].subNav.push({ path: `/folder/${doc.id}`, ...doc.data() });
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching user folders: ", error);
+      });
+      //FETCH USER DATA
+      const fetchData = async () => {
+        try {
+          if (currentuser) {
+            const currentUserId = currentuser.uid;
+            const userDocRef = doc(db, "users", currentUserId);
+            const docSnapshot = await getDoc(userDocRef);
+            if (docSnapshot.exists()) {
+              // Document exists, retrieve its data
+              const elementData = docSnapshot.data();
+              setUserData(elementData);
+            } else {
+              console.log("Document does not exist.");
+              setUserData(null); // Set to null or handle accordingly
+            }
+          }
+        } catch (error) {
+          console.error("Error getting document: ", error);
+        }
+      };
+      // Call fetchData
+      fetchData();
+  }, [currentuser]);
 
   return (
     <>
@@ -98,7 +192,7 @@ const Sidebar = () => {
             </div>
 
             <div style={{display:"flex",flexDirection:"column",marginLeft:"auto",marginRight:"auto",marginTop:100,alignItems:"center",position:"absolute",bottom:30}}>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+              <Avatar alt="Remy Sharp" imgProps={{crossOrigin:"anonymous"}} style={{border:"2px solid black",width:50,height:50}} src={userData.profilePictureURL} />
               <hr />
               <LogoutIcon />
             </div>

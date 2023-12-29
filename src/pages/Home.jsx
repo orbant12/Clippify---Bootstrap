@@ -24,6 +24,8 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import ScreenshotIcon from '@mui/icons-material/Screenshot';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import BasicSpeedDial from "../assets/FileAdd/addBtn"
+import FileCard from "../assets/FileAdd/fileCard";
+
 
 export function Home({folderUrl}) {
 
@@ -125,8 +127,10 @@ return (
     </Col>
   </Row>
   <Row className='home-page-rows' style={{marginBottom:100}}>
-    <Col>
-      <RecentCard image={recentFiles.img} title={recentFiles.title} recentNumber={recentFiles.related_count} size={recentFiles.video_size} />
+    <Col style={{width:"60%",marginLeft:100}}>
+    <Link to={`/folder/${recentFiles.id}`}>
+      <FileCard imgSrc={recentFiles.img} title={recentFiles.title} tags={recentFiles.tags} video_size={recentFiles.video_size} />
+      </Link>
     </Col>
   </Row>
   <Row className='home-page-rows'>
